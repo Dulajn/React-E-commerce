@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; // Import useState
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { Navbar, Container, Nav, Form, Row, Col } from 'react-bootstrap';
 import { FaShoppingCart } from 'react-icons/fa'; // Import FaShoppingCart icon
 
 export default function Shop() {
-  const [quantity, setQuantity] = useState(1);
-
-  const incrementQuantity = () => {
-    setQuantity(quantity + 1);
+  const [quantity, setQuantity] = useState(0); // Define quantity state variable
+  const incrementQuantity = () => { // Define incrementQuantity function
+    setQuantity(prevQuantity => prevQuantity + 1);
   };
-
-  const decrementQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+  const decrementQuantity = () => { // Define decrementQuantity function
+    setQuantity(prevQuantity => prevQuantity - 1);
   };
-
   return (
     <div>
       <Navbar bg="dark" variant="dark">
@@ -51,7 +46,6 @@ export default function Shop() {
           </Form>
         </Container>
       </Navbar>
-
 
     
     <div>
